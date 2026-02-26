@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Форма заявки</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>📝 Форма заявки</h1>
+
+      <div id="message"></div>
+
+      <form id="appForm" action="/cgi-bin/form.js" method="POST">
+        <!-- ФИО -->
+        <div class="form-group">
+          <label class="required">ФИО</label>
+          <input type="text" name="full_name" maxlength="150" required />
+          <div class="hint">Только буквы и пробелы, до 150 символов</div>
+        </div>
+
+        <!-- Телефон -->
+        <div class="form-group">
+          <label class="required">Телефон</label>
+          <input
+            type="tel"
+            name="phone"
+            placeholder="+7 (999) 000-00-00"
+            required
+          />
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label class="required">E-mail</label>
+          <input type="email" name="email" required />
+        </div>
+
+        <!-- Дата рождения -->
+        <div class="form-group">
+          <label class="required">Дата рождения</label>
+          <input type="date" name="birth_date" required />
+        </div>
+
+        <!-- Пол -->
+        <div class="form-group">
+          <label class="required">Пол</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" name="gender" value="male" required /> Мужской
+            </label>
+            <label>
+              <input type="radio" name="gender" value="female" /> Женский
+            </label>
+          </div>
+        </div>
+
+        <!-- Языки программирования -->
+        <div class="form-group">
+          <label class="required">Любимые языки программирования</label>
+          <select name="languages[]" multiple="multiple" required>
+            <option value="Pascal">Pascal</option>
+            <option value="C">C</option>
+            <option value="C++">C++</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="PHP">PHP</option>
+            <option value="Python">Python</option>
+            <option value="Java">Java</option>
+            <option value="Haskell">Haskell</option>
+            <option value="Clojure">Clojure</option>
+            <option value="Prolog">Prolog</option>
+            <option value="Scala">Scala</option>
+            <option value="Go">Go</option>
+          </select>
+          <div class="hint">Удерживайте Ctrl/Cmd для выбора нескольких</div>
+        </div>
+
+        <!-- Биография -->
+        <div class="form-group">
+          <label>Биография</label>
+          <textarea name="biography" maxlength="5000"></textarea>
+        </div>
+
+        <!-- Контракт -->
+        <div class="form-group">
+          <div class="checkbox-group">
+            <label>
+              <input
+                type="checkbox"
+                name="contract_accepted"
+                value="1"
+                required
+              />
+              С контрактом ознакомлен(а) *
+            </label>
+          </div>
+        </div>
+
+        <!-- Кнопка -->
+        <button type="submit" class="btn-submit">💾 Сохранить</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
